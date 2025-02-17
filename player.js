@@ -62,10 +62,10 @@ onAuthStateChanged(auth, (user) => {
             loadAllSessionsPlayers(filter, number);
         })
 
-        webpushr('fetch_id',function (sid) { 
-            //save id to database
-            console.log('webpushr subscriber id: ' + sid)
+        webpushr('getUserID', function(userId) {
+            console.log('Webpushr Subscriber ID:', userId);
         });
+        
     }
 });
 
