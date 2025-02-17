@@ -62,15 +62,9 @@ onAuthStateChanged(auth, (user) => {
             loadAllSessionsPlayers(filter, number);
         })
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Replace this with the actual user ID from your system
-            var userId = id; 
-        
-            if (userId) {
-                webpushr('attributes', {
-                    'user_id': userId
-                });
-            }
+        webpushr('fetch_id',function (sid) { 
+            //save id to database
+            console.log('webpushr subscriber id: ' + sid)
         });
     }
 });
