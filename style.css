@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#background{
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -100;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.content{
+    min-height: 100vh;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow-x: hidden;
+}
+
+.logins{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.login input{
+    height: 1.3rem;
+    padding: 2px 2px 2px 5px;
+    margin: 3px;
+    border-radius: 2px;
+    border: none;
+}
+.login button{
+    height: 2rem;
+    padding: 2px;
+    margin: 3px;
+    cursor: pointer;
+    background-color: rgb(205, 137, 0);
+    color: white;
+    border: none;
+}
+.login button:hover{
+    background-color: rgb(161, 108, 1);
+    transition: all 0.4s ease;
+}
+
+.session{
+    padding: 1.5rem;
+}
+
+.scheduled{
+    max-width: 90%;
+}
+
+@media (400px <= width <= 800px){
+    h1{
+        font-size: 2rem;
+    }
+    .logins{
+        grid-template-columns: 80%;
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (width <= 400px){
+    h1{
+        font-size: 2rem;
+    }
+    .logins{
+        grid-template-columns: 90%;
+        grid-template-rows: auto auto;
+    }
+}
+
+
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    float: left;
+    margin: 2rem auto auto auto;
+}
+
+footer h4{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
+footer p{
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.25rem;
+    padding: 1rem;
+    color: white;
+}
+
+.media .fa, .fa-solid{
+    color: var(--blue);
+    margin: 0 1rem;
+    cursor: pointer;
+    padding: 1rem 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.media .fa:hover, .fa-solid:hover{
+    color: var(--beige);
+}
+
+@media (width > 800px) and (height > 600px){
+    footer{
+        position: fixed;
+        bottom: 0;
+    }
+}

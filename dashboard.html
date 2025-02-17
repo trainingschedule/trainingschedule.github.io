@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dashboardScript.js" type="module"></script>
+    <!--<script type="module" src="scheduled.js"></script>-->
+    <link rel="stylesheet" href="dashboardStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/04bf603a0f.js" crossorigin="anonymous"></script>
+    <title>Dashboard | Training schedule</title>
+</head>
+<body>
+    <h1>Admin dashboard - Training schedule</h1>
+    <section class="data">
+        <h2 id="welcome">Welcome</h2>
+        <p id="status">text</p>
+        <p id="publicInfo">public</p>
+        <p id="programStatus">Wait for the software to load...</p>
+        <button onclick="logout(event)" id="logoutButton">Logout</button>
+    </section>
+
+    <section class="createSession">
+        <h3>New training session</h3>
+        <div class="row">
+            <div>
+                <div class="inField">
+                    <label for="player1">Player 1: </label>
+                    <select name="player1" id="player1">
+                        <option value="noPlayer">No player</option>
+                    </select>
+                </div>
+                <div class="inField">
+                    <label for="player2">Player 2: </label>
+                    <select name="player2" id="player2">
+                        <option value="noPlayer">No player</option>
+                    </select>
+                </div>
+                <div class="inField">
+                    <label for="player3">Player 3: </label>
+                    <select name="player3" id="player3">
+                        <option value="noPlayer">No player</option>
+                    </select>
+                </div>
+                <div class="inField">
+                    <label for="player4">Player 4: </label>
+                    <select name="player4" id="player4">
+                        <option value="noPlayer">No player</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="inField">
+                    <label for="coach">Coach: </label>
+                    <select name="coach" id="coach"></select>
+                </div>
+                <div class="inField">
+                    <label for="court">Court: </label>
+                    <select name="court" id="court"></select>
+                </div>
+                <div class="inField">
+                    <label for="startTime">Start time: </label>
+                    <input type="datetime-local" name="startTime" id="startTime">
+                </div>
+                <div class="inField">
+                    <label for="endTime">End time: </label>
+                    <input type="datetime-local" name="endTime" id="endTime">
+                </div>
+            </div>
+        </div>
+        <textarea name="info" id="info" placeholder="Additional information" rows="5"></textarea>
+        <button id="createSession">Create new session</button>
+    </section>
+
+    <section class="managementSettings">
+        <button id="playerManagementButton">Player management</button>
+        <button id="coachManagementButton">Coach management</button>
+        <button id="courtManagementButton">Court management</button>
+    </section>
+
+    <section id="management">
+        <section id="playerManagement" class="inactive">
+            <h3>Player management</h3>
+            <div class="newPlayer">
+                <h4>New player</h4>
+                <input type="text" name="newPlayerName" id="newPlayerName" placeholder="New player name">
+                <button id="newPlayer">Save</button>
+            </div>
+            <div id="playerList">
+                <h4>Player list</h4>
+                <!--<div class="player">
+                    <p class="playerName">Some name</p>
+                    <button class="editPlayer">Edit</button>
+                    <button class="deletePlayer">Delete</button>
+                </div>-->
+            </div>
+        </section>
+    
+        <section id="coachManagement" class="inactive">
+            <h3>Coach management</h3>
+            <div class="newCoach">
+                <h4>New coach</h4>
+                <input type="text" name="newCoachName" id="newCoachName" placeholder="New coach name">
+                <button id="newCoach">Save</button>
+            </div>
+            <div id="coachList">
+                <h4>Coach list</h4>
+                <!--<div class="coach">
+                    <p class="coachName">Some name</p>
+                    <button class="editCoach">Edit</button>
+                    <button class="deleteCoach">Delete</button>
+                </div>-->
+            </div>
+        </section>
+    
+        <section id="courtManagement" class="inactive">
+            <h3>Court management</h3>
+            <div class="newPlayer">
+                <h4>New court</h4>
+                <input type="text" name="newCourtName" id="newCourtName" placeholder="New court name">
+                <button id="newCourt">Save</button>
+            </div>
+            <div id="courtList">
+                <h4>Court list</h4>
+                <!--<div class="court">
+                    <p class="courtrName">Some name</p>
+                    <button class="editCourt">Edit</button>
+                    <button class="deleteCourt">Delete</button>
+                </div>-->
+            </div>
+            
+        </section>
+    </section>
+
+    <section class="dashboardFilter">
+        <div class="sessionNumber">
+            <label for="numberOfSessions">Show sessions: </label>
+            <input type="number" name="numberOfSessions" id="numberOfSessions" value="4">
+        </div>
+        <div class="playerFilter">
+            <label for="playerFilter">Filter by player: </label>
+            <select name="playerFilter" id="playerFilter">
+                <option value="All">All</option>
+            </select>
+        </div>
+        <div class="coachFilter">
+            <label for="playerFilter">Filter by coach: </label>
+            <select name="coachFilter" id="coachFilter">
+                <option value="All">All</option>
+            </select>
+        </div>
+        <div class="dateFilter">
+            <label for="dateFilter">Filter by date: </label>
+            <input type="date" name="dateFilter" id="dateFilter">
+            <input type="checkbox" name="doDateFilter" id="doDateFilter">
+        </div>
+        <div class="courtFilter">
+            <label for="courtFilter">Filter by court: </label>
+            <select name="courtFilter" id="courtFilter">
+                <option value="All">All</option>
+            </select>
+        </div>
+        <button id="dashboardFilterButton">Filter</button>
+    </section>
+
+    <section id="scheduledList">
+        <h3>Scheduled sessions</h2>
+        
+        <!--<div class="session">
+            <p>Players</p>
+            <p>Coach</p>
+            <p>Court</p>
+            <p>Time</p>
+            <p>Info</p>
+            <button>Edit</button>
+            <button>Delete</button>
+        </div>-->
+    </section>
+
+    <footer>
+        <div class="media">
+            <a href="https://ignjatovicpavle.github.io/"><i class="fa-solid fa-user fa-flip" style="--fa-animation-duration: 2s;"></i></a>
+            <a target="_blank" href="mailto:developerpavle@proton.me" title="developerpavle@proton.me"><i class="fa-solid fa-envelope fa-flip" style="--fa-animation-duration: 2s;"></i></a>
+        </div>
+        <p>Copyright © 2025 Pavle Ignjatović</p>
+    </footer>
+
+</body>
+</html>

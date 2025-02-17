@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    margin: 20px;
+}
+
+#programStatus{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(176, 0, 0);
+}
+
+#logoutButton{
+    background-color: rgb(131, 0, 0);
+    color: white;
+    padding: 5px;
+}
+
+section{
+    min-width: 60%;
+}
+
+section:not(#management){
+    margin: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+section div{
+    margin: 5px;
+}
+
+button{
+    height: auto;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+button:hover{
+    background-color: rgb(181, 132, 19);
+    color: white;
+    transition: all 0.4s ease-in-out;
+}
+#createSession{
+    display: flex;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+#createSession:hover{
+    background-color: rgb(181, 132, 19);
+}
+.createSession textarea{
+    padding: 5px;
+    width: 90%;
+}
+.createSession .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.player, .coach, .court{
+    display: flex;
+    flex-direction: row;
+}
+.player *, .coach *, .court *{
+    margin: 5px;
+}
+
+.session{
+    border: 1px solid black;
+    padding: 3rem;
+}
+.session button{
+    margin: 5px;
+    padding: 5px;
+    min-width: 4rem;
+}
+
+.inactive{
+    display: none;
+}
+.activeButton{
+    background-color: rgb(181, 132, 19);
+    color: white;
+}
+
+.managementSettings{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.managementSettings button{
+    padding: 5px;
+    margin: 10px;
+}
+
+#management{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.dashboardFilter{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+@media (width < 550px){
+    .createSession .row{
+        flex-direction: column;
+        justify-content: left;
+    }
+}
+
+@media (width <= 800px){
+    section{
+        width: 90%;
+    }
+    .managementSettings{
+        flex-direction: column;
+    }
+}
+
+footer a{
+    text-decoration: none;
+    color: rgb(181, 132, 19);
+}
+
+
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    float: left;
+    margin: 2rem auto auto auto;
+}
+
+footer h4{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
+footer p{
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    padding: 1rem;
+    color: rgb(181, 132, 19);
+}
+
+.media .fa, .fa-solid{
+    color: var(--blue);
+    margin: 0 1rem;
+    cursor: pointer;
+    padding: 1rem 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.media .fa:hover, .fa-solid:hover{
+    color: var(--beige);
+}

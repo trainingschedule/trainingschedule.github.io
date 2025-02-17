@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="player.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/04bf603a0f.js" crossorigin="anonymous"></script>
+    <title>Player view | Training schedule</title>
+</head>
+<body>
+    <style>
+        html{
+            overflow-x: hidden;
+        }
+        h1, p, a{
+            margin: 0.5rem;
+            text-decoration: none;
+        }
+        .settings{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #backToLogin, #loadSessionsButton{
+            display: block;
+            padding: 8px;
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+            border: none;
+            border-radius: 0.5rem;
+        }
+        #backToLogin:hover, #loadSessionsButton:hover{
+            color: white;
+            background-color: rgb(181, 132, 19);
+            transition: all 0.4s ease-in-out;
+        }
+        #loadSessionsButton{
+            max-width: 100px;
+            justify-content: center;
+        }
+        h2{
+            margin-top: 2rem;
+        }
+        #scheduledList{
+            margin-top: 1rem;
+        }
+        #scheduledList div{
+            background-color: rgba(0, 0, 0, 0.3);
+            margin: 0.1rem;
+        }
+        footer a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+        footer{
+            width: 100%;
+            text-align: center;
+            padding: 2rem 0;
+            float: left;
+            margin: 2rem auto auto auto;
+        }
+
+        footer h4{
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        footer p{
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.25rem;
+            padding: 1rem;
+            color: white;
+        }
+
+        .media .fa, .fa-solid{
+            color: var(--blue);
+            margin: 0 1rem;
+            cursor: pointer;
+            padding: 1rem 0;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .media .fa:hover, .fa-solid:hover{
+            color: var(--beige);
+        }
+
+    </style>
+    <div id="background"></div>
+    <section class="content">
+        <h1>Training schedule</h1>
+        <p id="status">No user.</p>
+        <a href="index.html"><button id="backToLogin">Back to login page</button></a>
+
+        <section class="scheduled">
+
+            <div class="settings">
+                <div>
+                    <label for="playerSelect">Filter by player: </label>
+                    <select name="playerSelect" id="playerSelect">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="numberOfSessions">Show sessions: </label>
+                    <input type="number" name="numberOfSessions" id="numberOfSessions" value="4">
+                </div>
+                <button id="loadSessionsButton">Load</button>
+            </div>
+            <h2>Scheduled:</h2>
+            <div id="scheduledList">
+
+            </div>
+            <!--<div class="session">
+                <p>Court</p>
+                <p>Players</p>
+                <p>Coach</p>
+                <p>Additional info</p>--->
+            </div>
+        </section>
+
+
+        <footer style="position: relative;">
+            <div class="media">
+                <a href="https://ignjatovicpavle.github.io/"><i class="fa-solid fa-user fa-flip" style="--fa-animation-duration: 2s;"></i></a>
+                <a target="_blank" href="mailto:developerpavle@proton.me" title="developerpavle@proton.me"><i class="fa-solid fa-envelope fa-flip" style="--fa-animation-duration: 2s;"></i></a>
+            </div>
+            <p>Copyright © 2025 Pavle Ignjatović</p>
+        </footer>
+
+    </section>
+    
+
+</body>
+</html>

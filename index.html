@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" type="module"></script>
+    <!---<script type="module" src="scheduled.js"></script>--->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/04bf603a0f.js" crossorigin="anonymous"></script>
+    <title>Training schedule</title>
+</head>
+<style>
+    .center{
+        position: fixed;
+        top: calc(50% - 35px);
+        right: calc(50% - 35px);
+        width: 70px;
+        height: 70px;
+        border: 6px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<body>
+    <div class="center" id="preload">
+    </div>
+
+    
+
+    <div id="background"></div>
+    <section class="content" id="content">
+        <h1>Training schedule</h1>
+        <div class="logins">
+            <form class="login" onsubmit="login(event)">
+                <h2>Coach/Admin login</h2>
+                <input type="text" name="username" id="usernameInput" placeholder="Username">
+                <input type="password" name="password" id="passwordInput" placeholder="Password">
+                <button id="loginButton" type="submit">Login</button>
+            </form>
+    
+            <form class="login">
+                <h2>Player login</h2>
+                <input type="text" name="username" id="playerUsernameInput" placeholder="Username">
+                <input type="password" name="password" id="playerPasswordInput" placeholder="Password">
+                <button id="playerLoginButton">Login</button>
+            </form>
+        </div>
+
+        <p id="status">No user.</p>
+
+        <footer>
+            <div class="media">
+                <a href="https://ignjatovicpavle.github.io/"><i class="fa-solid fa-user fa-flip" style="--fa-animation-duration: 2s;"></i></a>
+                <a target="_blank" href="mailto:developerpavle@proton.me" title="developerpavle@proton.me"><i class="fa-solid fa-envelope fa-flip" style="--fa-animation-duration: 2s;"></i></a>
+            </div>
+            <p>Copyright © 2025 Pavle Ignjatović</p>
+        </footer>
+    </section>
+    
+    <script>
+        document.getElementById('content').style.display = 'none';
+        var loader = document.getElementById("preload")
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+            document.getElementById('content').style.display = 'flex'
+        })
+    </script>
+    <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BNKB_NX2EPCE6N-aCGGi_27uSLQ1fwAazrcPy-Vx-b4peYw-DfnolIaBv5vvIxYtDKtyqthfQDvO8RtfuULwnuE' });</script><!-- end webpushr code -->
+</body>
+</html>
