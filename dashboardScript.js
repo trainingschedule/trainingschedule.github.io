@@ -47,6 +47,10 @@ let elementCounter = {
 }
 
 
+let notificationApiKey = "";
+let notificationAuthToken = "";
+
+
 onAuthStateChanged(auth, (user) => {
     //var notLoggedIn = document.getElementById('not-logged-in')
     //var loggedIn = document.getElementById('logged-in')
@@ -87,6 +91,23 @@ onAuthStateChanged(auth, (user) => {
         .catch(error => {
             console.log("Error getting document:", error);
         });
+
+
+        // Get data for notifications
+        const docRefNotifications = doc(db, 'developerData', "Webpushr");
+        getDoc(docRefNotifications)
+        .then(doc => {
+        if (doc.exists) {
+            notificationApiKey = doc.data().api_key;
+            notificationAuthToken = doc.data().auth_token;
+        } else {
+            console.log("No data for notifications!");
+        }
+        })
+        .catch(error => {
+            console.log("Error getting notification data document:", error);
+        });
+
 
         console.log('logged in')
 
@@ -530,6 +551,27 @@ function loadAllSessions(sessionNumber, filters){
         console.log("Error getting document:", error);
     });
 }
+
+document.getElementById('notificationTest').addEventListener('click', ()=>{
+    fetch("https://api.webpushr.com/v1/notification/send/sid", {
+        method: "POST",
+        headers: {
+            "webpushrKey": notificationApiKey,
+            "webpushrAuthToken": notificationAuthToken,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            title: "New training session!",
+            message: "Your coach has just scheduled a new training session for you.",
+            target_url: "https://www.webpushr.com",
+            sid: "165324349"
+        })
+    })
+    .then(response => response.json())  // Convert response to JSON
+    .then(data => console.log("Response:", data))
+    .catch(error => console.error("Error:", error));
+    
+})
 
 
 function logout(){
