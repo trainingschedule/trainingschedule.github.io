@@ -61,6 +61,17 @@ onAuthStateChanged(auth, (user) => {
             number = x;
             loadAllSessionsPlayers(filter, number);
         })
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace this with the actual user ID from your system
+            var userId = id; 
+        
+            if (userId) {
+                webpushr('attributes', {
+                    'user_id': userId
+                });
+            }
+        });
     }
 });
 
@@ -150,3 +161,6 @@ getDocs(collection(db, id, "defaultCentre", "players"))
         console.log("Error getting document:", error);
     });
 }
+
+
+
