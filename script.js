@@ -26,10 +26,6 @@ const db = getFirestore(app);
 let status = document.getElementById('status')
 let id = "";
 
-webpushr('getUserID', function(userId) {
-    console.log('Webpushr Subscriber ID:', userId);
-});
-
 
 onAuthStateChanged(auth, (user) => {
     //var notLoggedIn = document.getElementById('not-logged-in')
