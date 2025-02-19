@@ -62,8 +62,14 @@ onAuthStateChanged(auth, (user) => {
             loadAllSessionsPlayers(filter, number);
         })
 
-        webpushr('getUserID', function(userId) {
-            console.log('Webpushr Subscriber ID:', userId);
+        webpushr('fetch_id', function(webpushrId) {
+            if (webpushrId) {
+                console.log('Webpushr ID:', webpushrId);
+                // You can now send this webpushrId to your server
+                //sendWebpushrIdToServer(webpushrId);
+            } else {
+                console.error('Webpushr ID could not be fetched.');
+            }
         });
         
     }
